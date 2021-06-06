@@ -11,6 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
+import colors from 'tailwindcss/colors'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -30,19 +31,23 @@ const Layout = ({ children }) => {
         style={{
           margin: `0 auto`,
           maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
+          padding: `1rem 1.0875rem 1.45rem`,
+          background: colors.trueGray[900],
+          width: `100vw`,
+          height: `calc(100vh - 80px)`
         }}
       >
         <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
+        {/*<footer*/}
+        {/*  style={{*/}
+        {/*    marginTop: `2rem`,*/}
+        {/*    background: colors.trueGray['800']*/}
+        {/*  }}*/}
+        {/*>*/}
+        {/*  © {new Date().getFullYear()}, Built with*/}
+        {/*  {` `}*/}
+        {/*  <a href="https://www.gatsbyjs.com">Gatsby</a>*/}
+        {/*</footer>*/}
       </div>
     </>
   )
