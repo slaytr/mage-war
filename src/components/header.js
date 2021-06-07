@@ -13,11 +13,11 @@ const Header = ({ siteTitle }) => (
       style={{
         margin: `0 auto`,
         maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-        height: `80px`,
+        padding: ``,
+        height: `60px`,
         display: `flex`,
         justifyContent: `center`,
-        alignItems: `center,`
+        alignItems: `center`
       }}
     >
       <h2 style={{ margin: 0 }}>
