@@ -11,6 +11,9 @@ const MiniCard = ({ name, rarity, level, quantity, icon }) => {
   const miniCardQuantity = quantity || "default"
   const miniCardIcon = icon || "default"
 
+  const levelDetails = {
+
+  }
   return (
     <>
       <div className="text-gray-50 rounded-md"
