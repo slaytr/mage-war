@@ -2,27 +2,27 @@ import * as React from "react"
 import PropTypes from "prop-types"
 
 import MiniCard from "./miniCard"
-import GabeMiniCardIcon from "../../images/units/gabe.webp"
+import RareMiniCardIcon from "../../images/units/bill.webp"
 
-const GabeMiniCard = ({ name, rarity, level, quantity, icon }) => {
+const RareMiniCard = ({ name, rarity, level, quantity, icon }) => {
 
-  const MiniCardIcon = GabeMiniCardIcon;
+  const MiniCardIcon = RareMiniCardIcon;
 
   return (
     <>
       <MiniCard
-        name="Gabe"
-        rarity="mythic"
+        name="rare"
+        rarity="rare"
         level={11}
-        quantity={2}
+        quantity={0}
         icon={MiniCardIcon}
-        element="wind"
+        element="water"
       />
     </>
   )
 }
 
-GabeMiniCard.propTypes = {
+RareMiniCard.propTypes = {
   name: PropTypes.string,
   rarity: PropTypes.string,
   level: PropTypes.number,
@@ -30,4 +30,4 @@ GabeMiniCard.propTypes = {
   icon: PropTypes.string
 }
 
-export default GabeMiniCard
+export default RareMiniCard

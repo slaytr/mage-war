@@ -12,10 +12,11 @@ const BillMiniCard = ({ name, rarity, level, quantity, icon }) => {
     <>
       <MiniCard
         name="Bill"
-        rarity="Mythic"
-        level="1"
-        quantity="50"
+        rarity="mythic"
+        level={11}
+        quantity={0}
         icon={MiniCardIcon}
+        element="water"
       />
     </>
   )

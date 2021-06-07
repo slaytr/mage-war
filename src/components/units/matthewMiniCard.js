@@ -11,11 +11,12 @@ const MatthewMiniCard = ({ name, rarity, level, quantity, icon }) => {
   return (
     <>
       <MiniCard
-        name="Blayze"
-        rarity="Mythic"
-        level="1"
-        quantity="50"
+        name="Matthew"
+        rarity="mythic"
+        level={12}
+        quantity={3}
         icon={MiniCardIcon}
+        element="fire"
       />
     </>
   )

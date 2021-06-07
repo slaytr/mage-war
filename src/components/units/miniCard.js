@@ -4,16 +4,38 @@ import PropTypes from "prop-types"
 import "../layout.css"
 import colors from "tailwindcss/colors"
 
-const MiniCard = ({ name, rarity, level, quantity, icon }) => {
+import QuantityBar from "./miniCardComponents/quantityBar"
+import IconDisplay from "./miniCardComponents/iconDisplay"
+
+
+const MiniCard = ({ name, rarity, level, quantity, icon, element, emptyCard = false }) => {
   const miniCardName = name || "default"
-  const miniCardRarity = rarity || "basic" // common, uncommon, rare, epic, legendary, mythic
-  const miniCardLevel = level || "default"
-  const miniCardQuantity = quantity || "default"
+  const miniCardRarity = rarity || "common" // common, rare, epic, legendary, mythic
+  const miniCardLevel = level || 1
+  const miniCardQuantity = quantity || 0
   const miniCardIcon = icon || "default"
+  const miniCardElement = element || "fire" // earth, wind, water, fire
 
-  const levelDetails = {
-
+  const bgCardColorsByRarity = {
+    common : {
+      bg: colors.gray[400],
+    },
+    rare : {
+      bg: `linear-gradient(to left, ${colors.blue[500]}, ${colors.blue[700]})`,
+    },
+    epic : {
+      bg: `linear-gradient(to left, ${colors.purple[600]}, ${colors.purple[700]}`,
+    },
+    legendary : {
+      bg: `linear-gradient(to left, ${colors.yellow[500]}, ${colors.amber[600]}`,
+    },
+    mythic : {
+      bg: `linear-gradient(to left, #d53a9d, ${colors.red[700]})`,
+    }
   }
+
+  const miniCardBg = bgCardColorsByRarity[rarity].bg
+
   return (
     <>
       <div className="text-gray-50 rounded-md"
@@ -24,62 +46,28 @@ const MiniCard = ({ name, rarity, level, quantity, icon }) => {
              justifyContent: `center`,
              alignItems: `center`,
              flexDirection: `column`,
-             background: "linear-gradient(to left, #743ad5, #d53a9d)",
-             padding: "2px"
+             background: miniCardBg,
+             padding: "2px",
+             margin: "6px"
            }}
       >
         <div style={{
           width: "100%",
           height: "100%",
-          background: "linear-gradient(to left, #743ad5, #d53a9d)",
+          background: miniCardBg,
           display: `flex`,
           justifyContent: `center`,
           alignItems: `center`,
           flexDirection: `column`
         }}>
-          <div style={{
-            height: "75%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            background: colors.violet[900],
-            width: "100%"
-          }}>
-            <img
-              src={icon}
-              alt={`${name} icon`}
-              className=" w-full h-full"
-            />
-          </div>
-          <div className="rounded-b-md" style={{
-            position: "relative",
-            width: "100%",
-            height: "25%",
-            background: colors.trueGray[700],
-            padding: "3px"
-          }}>
-            <div className="rounded-md" style={{
-              width: "33%",
-              height: "100%",
-              background: "linear-gradient(to top, #04B9FB, #358BCA)",
-              textAlign: "center"
-            }}/>
-            <div style={{
-              position: "absolute",
-              left: 0,
-              top: 0,
-              display: "flex",
-              width: "74px",
-              justifyContent: "center",
-              alignItems: "center",
-              fontSize: "12px",
-              color: colors.trueGray[50],
-              fontWeight: 500,
-              fontFamily: "Open Sans, Roboto, sans-serif"
-            }}>
-              50/150
-            </div>
-          </div>
+          <IconDisplay
+            level={miniCardLevel}
+            icon={miniCardIcon}
+            rarity={miniCardRarity}
+            element={miniCardElement}
+            name={miniCardName}
+          />
+          <QuantityBar level={miniCardLevel} quantity={miniCardQuantity} rarity={miniCardRarity}/>
         </div>
       </div>
     </>
@@ -91,7 +79,8 @@ MiniCard.propTypes = {
   rarity: PropTypes.string,
   level: PropTypes.number,
   quantity: PropTypes.number,
-  icon: PropTypes.element
+  icon: PropTypes.element,
+  element: PropTypes.string
 }
 
 export default MiniCard

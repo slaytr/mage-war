@@ -1,12 +1,15 @@
 import * as React from "react"
 
 import Layout from "../../components/layout"
-import Card from "../../components/units/card"
 import BillMiniCard from "../../components/units/billMiniCard"
 import MatthewMiniCard from "../../components/units/matthewMiniCard"
 import Seo from "../../components/seo"
 import GabeMiniCard from "../../components/units/gabeMiniCard"
 import JordanMiniCard from "../../components/units/jordanMiniCard"
+import RareMiniCard from "../../components/units/rareMiniCard"
+import LegendaryMiniCard from "../../components/units/legendaryMiniCard"
+import CommonMiniCard from "../../components/units/commonMiniCard"
+import EpicMiniCard from "../../components/units/epicMiniCard"
 
 const UnitPage = () => (
   <Layout view="units">
@@ -18,10 +21,10 @@ const UnitPage = () => (
       <JordanMiniCard/>
     </div>
     <div className="flex flex-row justify-between mt-2">
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
+      <CommonMiniCard/>
+      <RareMiniCard/>
+      <EpicMiniCard/>
+      <LegendaryMiniCard/>
     </div>
   </Layout>
 )
