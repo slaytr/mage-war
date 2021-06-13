@@ -6,6 +6,7 @@ import "./login.css"
 import SpookyChest from "./animations/spookyChest"
 import { connect } from "react-redux"
 
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 
 const Counter = ({ count, increment }) => (
   <div>
@@ -30,6 +31,11 @@ const mapDispatchToProps = dispatch => {
 const ConnectedCounter = connect(mapStateToProps, mapDispatchToProps)(Counter)
 
 const LoginPage = () => {
+
+  const handleLogInWithFacebookCallback = (response) => {
+    console.log(response)
+  }
+
   return (
     <>
       <div id="login-page-wrapper"
@@ -52,10 +58,19 @@ const LoginPage = () => {
         <section id="login-bottom-area">
           <div className="login-divider"/>
           <div id="login-bottom-area__button-container">
-            <div id="facebook-login-button">
-              <i className="fab fa-facebook-f p-4 text-gray-50"/>
-              <div className="pr-4 text-gray-50">Log in with Facebook</div>
-            </div>
+            <FacebookLogin
+              appId="235184844713468"
+              fields="name,email,picture"
+              onClick={()=>{console.log("clicked")}}
+              callback={handleLogInWithFacebookCallback}
+              autoLoad
+              render={(renderProps) => (
+                <div id="facebook-login-button" onClick={renderProps.onClick}>
+                  <i className="fab fa-facebook-f p-4 text-gray-50"/>
+                  <div className="pr-4 text-gray-50">Log in with Facebook</div>
+                </div>
+              )}
+            />
             <div id="google-login-button">
               <i className="fab fa-google p-4 text-gray-50"/>
               <div className="pr-4 text-gray-50">Log in with Google</div>
