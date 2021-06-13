@@ -5,7 +5,7 @@ import Login from "../components/login"
 
 const IndexPage = () => (
   <Login>
-    <Seo title="Home"/>
+    <Seo title="Login"/>
   </Login>
 )
 

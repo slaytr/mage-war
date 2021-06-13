@@ -1,12 +1,10 @@
 import * as React from "react"
-import PropTypes from "prop-types"
 
 import LoginBackground from "../images/login/login-bg.png"
-import colors from "tailwindcss/colors"
 import "./login.css"
 import SpookyChest from "./animations/spookyChest"
 
-const Login = () => {
+const LoginPage = () => {
   return (
     <>
       <div id="login-page-wrapper"
@@ -16,9 +14,9 @@ const Login = () => {
           <div id="login-title-area__content">
             <div className="login-divider"/>
             <div id="login-title">
-              <span className="login-title__text-small">WELCOME</span>
-              <span className="login-title__text-small">TO</span>
-              <span className="login-title__text-large font-bold">MAGIX</span>
+              <span className="login-title__text-large font-bold mb-2">MAGIX</span>
+              <span className="login-title__text-small">Magix is a browser-based mobile game</span>
+              <span className="login-title__text-small">created by a retard for retards</span>
             </div>
             <div className="login-divider-reverse"/>
           </div>
@@ -45,9 +43,4 @@ const Login = () => {
   )
 }
 
-Login.propTypes = {
-  children: PropTypes.node.isRequired,
-  view: PropTypes.string
-}
-
-export default Login
+export default LoginPage
